@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home - JON CAIAZZO.COM{% endblock %}
+
+{% block extra_css %}
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        position: relative;
+        background: linear-gradient(120deg, #e0e7ff 0%, #717950a1 100%);
+    }
+
+    .side-wall {
+        position: fixed;
+        top: 0;
+        width: 60px;
+        height: 100vh;
+        background: linear-gradient(180deg, #c4c0bf 80%, #ac9789 100%);
+        opacity: 0.2;
+        z-index: 1;
+    }
+
+    .side-wall.left {
+        left: 0;
+        border-top-right-radius: 40px;
+        border-bottom-right-radius: 40px;
+    }
+
+    .side-wall.right {
+        right: 0;
+        border-top-left-radius: 40px;
+        border-bottom-left-radius: 40px;
+    }
+
+    .site-border {
+        border: 8px solid #bf6b59;
+        min-height: 100vh;
+        box-sizing: border-box;
+        padding: 8px;
+        background-color: rgba(240, 240, 240, 0.85);
+        border-radius: 8px;
+        box-shadow: 0 0 32px 0 rgba(44, 62, 80, 0.15);
+        position: relative;
+        z-index: 2;
+        max-width: 1900px;
+        margin: 3px auto;
+        margin-top: 275px;
+    }
+
+
+
+    .content {
+        position: relative;
+        z-index: 3;
+    }
+
+    h1 {
+        text-align: center;
+        color: white;
+        margin-top: 0;
+        margin-bottom: 30px;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        letter-spacing: 2px;
+    }
+
+    a {
+        color: #9a6642;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1>JTC.gov</h1>
+<h1 style="text-align: center; color: olive;">Welcome to JTC.gov</h1>
+<div class="side-wall left"></div>
+<div class="side-wall right"></div>
+
+<div class="site-border">
+    <div class="content">
+        <h1 style="color:#5B4636;">Jon Caiazzo</h1>
+        <p style="color:#7C6F57;">This is the start of my website 7/2/2025.</p>
+        <a href="https://www.youtube.com/" style="color:#8B5E3C;">YouTube Link</a><br>
+        <img src="https://th.bing.com/th/id/R.63c7d5e69e85026692375e33c737a043?rik=2BOGBKSPyV9%2frw&riu=http%3a%2f%2fwww.animalspot.net%2fwp-content%2fuploads%2f2017%2f08%2fPenguin-Images.jpg&ehk=FKU8UE2yuMApiQtyGgZhIIFZxwBmFi3lxXhHjfOcAkw%3d&risl=&pid=ImgRaw&r=0"
+            width="500" height="600" alt="sweet penguin"
+            style="position: relative; left: 675px; top: 50px; border: 6px solid #A89F91; border-radius: 12px; box-shadow: 0 4px 24px #7C6F57;">
+    </div>
+</div>
+{% endblock %}
