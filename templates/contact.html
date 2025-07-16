@@ -3,12 +3,193 @@
 
 {% block title %}Contact - JON CAIAZZO.COM{% endblock %}
 
+{% block extra_css %}
+<style>
+    .contact-info {
+        background: rgba(245, 245, 220, 0.95);
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: var(--shadow-lg);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(154, 205, 50, 0.3);
+    }
+    
+    .contact-form {
+        background: rgba(245, 245, 220, 0.95);
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        box-shadow: var(--shadow-lg);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(154, 205, 50, 0.3);
+    }
+    
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: var(--text-primary);
+    }
+    
+    .form-control {
+        width: 100%;
+        padding: 0.75rem;
+        border: 2px solid var(--border-color);
+        border-radius: var(--border-radius);
+        font-size: 1rem;
+        transition: var(--transition);
+        background: var(--background-primary);
+        color: var(--text-primary);
+    }
+    
+    .form-control:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(85, 107, 47, 0.1);
+    }
+    
+    .btn-submit {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: var(--background-primary);
+        border: none;
+        padding: 0.75rem 2rem;
+        border-radius: var(--border-radius);
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .btn-submit:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+    }
+    
+    .alert {
+        padding: 1rem;
+        border-radius: var(--border-radius);
+        margin-bottom: 1rem;
+    }
+    
+    .alert-success {
+        background: rgba(107, 142, 35, 0.1);
+        border: 1px solid rgba(107, 142, 35, 0.3);
+        color: var(--primary-color);
+    }
+    
+    .direct-email {
+        background: rgba(154, 205, 50, 0.1);
+        border: 1px solid rgba(154, 205, 50, 0.3);
+        border-radius: var(--border-radius);
+        padding: 1rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    
+    .direct-email a {
+        color: var(--primary-color);
+        text-decoration: none;
+        font-weight: 600;
+    }
+    
+    .direct-email a:hover {
+        text-decoration: underline;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
 <div class="content">
-    <div class="hero-section">
-        <h2>Get in Touch</h2>
-        <p>Feel free to reach out to me for collaborations, opportunities, or just to say hello!</p>
-        <p>This page is under construction - contact form coming soon!</p>
+    <div class="hero-section fade-in-up">
+        <h2><i class="fas fa-envelope"></i> Get In Touch</h2>
+        <p>Let's connect and discuss opportunities, collaborations, or just have a great conversation about tech!</p>
+    </div>
+
+    <div class="contact-info fade-in-up">
+        <h3 class="mb-3">� Direct Email</h3>
+        <div class="direct-email">
+            <p>For immediate inquiries, you can reach me directly at:</p>
+            <a href="mailto:jtcaia2004@gmail.com">jtcaia2004@gmail.com</a>
+        </div>
+        <p>Or use the form below to send me a detailed message:</p>
+    </div>
+
+    <div class="contact-form fade-in-up">
+        <h3 class="mb-3">Contact Form</h3>
+        
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success">
+                    <i class="fas fa-check-circle"></i> {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        
+        <form method="post" action="{% url 'contact' %}" novalidate>
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="{{ form.name.id_for_label }}" class="form-label">
+                    {{ form.name.label }}
+                </label>
+                {{ form.name }}
+            </div>
+            
+            <div class="form-group">
+                <label for="{{ form.email.id_for_label }}" class="form-label">
+                    {{ form.email.label }}
+                </label>
+                {{ form.email }}
+            </div>
+            
+            <div class="form-group">
+                <label for="{{ form.reason.id_for_label }}" class="form-label">
+                    {{ form.reason.label }}
+                </label>
+                {{ form.reason }}
+            </div>
+            
+            <div class="form-group">
+                <label for="{{ form.message.id_for_label }}" class="form-label">
+                    {{ form.message.label }}
+                </label>
+                {{ form.message }}
+            </div>
+            
+            <button type="submit" class="btn-submit">
+                <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+        </form>
+    </div>
+
+    <div class="card fade-in-up">
+        <h3 class="mb-3">🤝 Let's Connect</h3>
+        <p class="mb-4">
+            I'm always excited to connect with fellow developers, potential collaborators, or anyone 
+            interested in technology. Whether you have a project in mind, want to discuss code, 
+            or just want to say hello, I'd love to hear from you!
+        </p>
+        
+        <div class="text-center">
+            <div class="social-links" style="justify-content: center; gap: 2rem;">
+                <a href="https://github.com/Jon-C12" target="_blank" class="btn btn-secondary">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/your-profile" target="_blank" class="btn btn-secondary">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="mailto:jtcaia2004@gmail.com" class="btn btn-primary">
+                    <i class="fas fa-envelope"></i> Email Me
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

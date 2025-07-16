@@ -5,10 +5,31 @@
 
 {% block content %}
 <div class="content">
-    <div class="hero-section">
-        <h2>Personal Projects</h2>
-        <p>These are some of my personal development projects and experiments.</p>
-        <p>This page is under construction - personal projects coming soon!</p>
+    <div class="hero-section fade-in-up">
+        <h2><i class="fas fa-heart"></i> Personal Projects</h2>
+        <p>Passion projects, experiments, and creative coding adventures.</p>
+    </div>
+
+    <div class="card fade-in-up">
+        <h3 class="mb-3">Creative Coding</h3>
+        <p class="mb-4">
+            This space will showcase my personal development projects, coding experiments, and 
+            creative solutions. From fun side projects to learning exercises, you'll find a 
+            variety of work that represents my passion for coding.
+        </p>
+        
+        <h3 class="mb-3">🧪 Experimental Work</h3>
+        <p class="mb-4">
+            I love experimenting with new technologies, frameworks, and programming concepts. 
+            These projects often serve as learning opportunities and creative outlets where 
+            I can explore different approaches to problem-solving.
+        </p>
+
+        <div class="text-center">
+            <a href="{% url 'contact' %}" class="btn btn-primary">
+                <i class="fas fa-envelope"></i> Share Your Ideas
+            </a>
+        </div>
     </div>
 </div>
 {% endblock %}
